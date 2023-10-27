@@ -57,4 +57,6 @@
 	  <ProjectReference Include="..\MauiTest.ViewModels\MauiTest.ViewModels.csproj" />
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiTestAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>

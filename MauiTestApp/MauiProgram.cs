@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Maui;
+using MauiTestApp.Controls;
+using MauiTestApp.Handlers;
 using Microsoft.Extensions.Logging;
 
 namespace MauiTestApp
@@ -16,10 +18,12 @@ namespace MauiTestApp
                     fonts.AddFont("Kastore-Bold.otf", "Kastore-Bold");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                }).ConfigureMauiHandlers(handlers =>
+                {
+                    handlers.AddHandler(typeof(CustomEntry), typeof(CustomEntryHandler));
                 });
-
 #if DEBUG
-		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

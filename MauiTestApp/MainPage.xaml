@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MauiTestApp.MainPage"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:viewModels="clr-namespace:MauiTest.ViewModels;assembly=MauiTest.ViewModels">
+    xmlns:viewModels="clr-namespace:MauiTest.ViewModels;assembly=MauiTest.ViewModels"
+    xmlns:controls="clr-namespace:MauiTestApp.Controls">
 
     <ContentPage.BindingContext>
         <viewModels:MainViewModel />
@@ -15,6 +16,13 @@
     </ContentPage.Behaviors>
 
     <ContentPage.Resources>
+        <Style x:Key="TextEntry" TargetType="Entry">
+            <Setter Property="PlaceholderColor" Value="#1a82a8" />
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="Keyboard" Value="Text" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="End" />
+        </Style>
         <Style x:Key="NumericEntry" TargetType="Entry">
             <Setter Property="PlaceholderColor" Value="#1a82a8" />
             <Setter Property="FontSize" Value="Medium" />
@@ -56,7 +64,11 @@
                 Text="CheckSplitter"
                 TextColor="#197ea3" />
             <Frame BackgroundColor="#8888d2ec">
-                <Grid RowDefinitions="*,*,*" Style="{StaticResource NumericGrid}">
+                <Grid 
+                    RowDefinitions="*,*,*" 
+                    ColumnDefinitions="*,*" 
+                    Style="{StaticResource NumericGrid}">
+
                     <Label Style="{StaticResource NumericLabel}" Text="Amount" />
                     <Entry
                         Grid.Column="1"
@@ -73,6 +85,17 @@
                         Placeholder="Tip as percent"
                         Style="{StaticResource NumericEntry}"
                         Text="{Binding TipRate}" />
+
+                    <Label 
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Style="{StaticResource NumericLabel}" 
+                        Text="Text" />
+                    <controls:CustomEntry
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Text="Green" 
+                        TextColor="Green"/>
                 </Grid>
             </Frame>
 

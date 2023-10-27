@@ -6,6 +6,9 @@ public partial class MainViewModel : ObservableObject
 {
     // Bindings.
     [ObservableProperty]
+    private string _text = string.Empty;
+
+    [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(Total))]
     [NotifyPropertyChangedFor(nameof(Tip))]
     [NotifyPropertyChangedFor(nameof(PersonalAmount))]
@@ -19,7 +22,7 @@ public partial class MainViewModel : ObservableObject
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(PersonalAmount))]
-    private double _numPeople = 1;
+    private int _numPeople = 1;
 
     public double Tip => RoundUp(Amount * (TipRate / 100.0));
     public double Total => RoundUp(Amount + Tip);
