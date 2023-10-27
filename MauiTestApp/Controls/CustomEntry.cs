@@ -1,6 +1,6 @@
 ﻿namespace MauiTestApp.Controls;
 
-public class CustomEntry : View, ICustomEntry
+public class CustomEntry : View
 {
     public static readonly BindableProperty TextProperty =
         BindableProperty.Create(nameof(Text), typeof(string), typeof(CustomEntry), null);

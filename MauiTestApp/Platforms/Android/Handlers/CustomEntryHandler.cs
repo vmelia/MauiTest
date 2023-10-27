@@ -6,13 +6,13 @@ using Microsoft.Maui.Platform;
 // ReSharper disable once CheckNamespace
 namespace MauiTestApp.Handlers;
 
-public partial class CustomEntryHandler : ViewHandler<ICustomEntry, EditText>
+public partial class CustomEntryHandler : ViewHandler<CustomEntry, EditText>
 {
-    public static PropertyMapper<ICustomEntry, CustomEntryHandler> CustomEntryMapper = 
-        new PropertyMapper<ICustomEntry, CustomEntryHandler>(ViewMapper)
+    public static PropertyMapper<CustomEntry, CustomEntryHandler> CustomEntryMapper = 
+        new PropertyMapper<CustomEntry, CustomEntryHandler>(ViewMapper)
     {
-        [nameof(ICustomEntry.Text)] = MapText,
-        [nameof(ICustomEntry.TextColor)] = MapTextColor,
+        [nameof(CustomEntry.Text)] = MapText,
+        [nameof(CustomEntry.TextColor)] = MapTextColor,
     };
 
     public CustomEntryHandler() 
@@ -25,12 +25,12 @@ public partial class CustomEntryHandler : ViewHandler<ICustomEntry, EditText>
         return new EditText(Context);
     }
 
-    private static void MapText(CustomEntryHandler handler, ICustomEntry entry)
+    private static void MapText(CustomEntryHandler handler, CustomEntry entry)
     {
         handler.PlatformView.Text = entry.Text;
     }
 
-    private static void MapTextColor(CustomEntryHandler handler, ICustomEntry entry)
+    private static void MapTextColor(CustomEntryHandler handler, CustomEntry entry)
     {
         handler.PlatformView.SetTextColor(entry.TextColor.ToPlatform());
     }
